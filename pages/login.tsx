@@ -1,10 +1,19 @@
 import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FaDiscord, FaGoogle } from "react-icons/fa";
 
 const LoginPage = () => {
   const { data: session } = useSession();
   console.log(session);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.push("/");
+    }
+  }, [session, router]);
 
   return (
     <>
