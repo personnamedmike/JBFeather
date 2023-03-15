@@ -5,13 +5,11 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
-  ModalHeader,
   ModalOverlay,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Dispatch, useState } from "react";
-import Navbar from "./Navbar";
 
 interface AssetModalProps {
   setGetAsset: Dispatch<any>;
@@ -45,7 +43,7 @@ const AssetModal: React.FC<AssetModalProps> = ({ setGetAsset }) => {
         fontSize="80px"
         fontWeight="extra"
         key={asset}
-        color={selectedAsset === asset ? "#F4AB00" : "#C2C2C2"}
+        color={selectedAsset === asset ? "assetOrange" : "#C2C2C2"}
       >
         <Text>{asset}</Text>
       </Box>
@@ -57,7 +55,7 @@ const AssetModal: React.FC<AssetModalProps> = ({ setGetAsset }) => {
       <Button
         onClick={() => onOpen()}
         fontSize="80px"
-        color="#F4AB00"
+        color="assetOrange"
         variant="none"
         mt={6}
         p={0}

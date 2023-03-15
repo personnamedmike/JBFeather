@@ -1,14 +1,11 @@
 import React, { ReactNode } from "react";
 import { Flex } from "@chakra-ui/react";
-import Navbar from "./Navbar";
 
-// TODO: fix type of session
 interface LayoutProps {
-  session: any;
   children: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, session }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Flex
@@ -17,12 +14,10 @@ const Layout: React.FC<LayoutProps> = ({ children, session }) => {
         justifyContent="space-between"
         px={["1rem", "2rem"]}
         pb="1rem"
-        w={["full", "full", "50%"]}
-        border="1px lightgray solid"
+        w={["full", "80%", "60%", "50%"]}
         rounded="xl"
         fontFamily="sharpie"
       >
-        <Navbar session={session} />
         {children}
       </Flex>
     </>

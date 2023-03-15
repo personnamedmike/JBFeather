@@ -1,12 +1,10 @@
-import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { Box, Button, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { FaDiscord, FaGoogle } from "react-icons/fa";
 
-const LoginPage = () => {
+const Login = () => {
   const { data: session } = useSession();
-  console.log(session);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,15 +15,8 @@ const LoginPage = () => {
 
   return (
     <>
-      {/* {session && (
-        <>
-          <Text>Signed in as {session && session?.user?.username}</Text>
-          <Button onClick={() => signOut()}>Sign out</Button>
-        </>
-      )} */}
-
-      <Box textAlign="center">
-        <Heading as="h1" color="green">
+      <Box textAlign="center" fontFamily="inter">
+        <Heading as="h1" color="pink">
           <Text fontSize="120px" fontFamily="sharpie">
             Kaching
           </Text>
@@ -36,37 +27,36 @@ const LoginPage = () => {
             👋
           </Text>
         </Box>
-        <Stack
-          direction="column"
-          textAlign="center"
-          m="auto"
-          spacing={3}
-          w={["full", "70%", "50%"]}
-        >
-          <Box w="full" textAlign="left">
+        <Stack direction="column" m="auto" spacing={3} textAlign="left">
+          <Box w="full" textAlign="left" color="loginGray">
             Log in with
           </Box>
-          <Box w="full">
+          <Box>
             <Button
-              w="full"
-              variant="outline"
+              variant="login"
+              leftIcon={<Image src={"google-color.svg"} alt="" />}
+              iconSpacing="1rem"
               onClick={() => signIn("keyp", undefined, "login_provider=GOOGLE")}
-              leftIcon={<FaGoogle />}
             >
               Log in with Google
             </Button>
           </Box>
-          <Box w="full">
+          <Box>
             <Button
-              w="full"
-              variant="outline"
+              variant="login"
+              leftIcon={<Image src={"discord-color.svg"} alt="" />}
+              iconSpacing="1rem"
               onClick={() =>
                 signIn("keyp", undefined, "login_provider=DISCORD")
               }
-              leftIcon={<FaDiscord />}
             >
               Log in with Discord
             </Button>
+          </Box>
+          <Box>
+            <Text color="#B0B6C1" fontSize="9px">
+              Powered by 🍩 Keyp
+            </Text>
           </Box>
         </Stack>
       </Box>
@@ -74,4 +64,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
