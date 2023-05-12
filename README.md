@@ -19,15 +19,7 @@ Kaching's key features are:
 
 - Cash out - lets you offramp your funds to popular offramps.
 
-## Installation
-
-Kaching is a web application that does not require installation. Simply navigate to https://kaching.money/ to start using the application.
-Support
 
 ## License
 
 GNU General Public License v3.0
-
-## How to Contribute to the Project
-
-Open a pull request and your code will be reviewed by the Kaching team
